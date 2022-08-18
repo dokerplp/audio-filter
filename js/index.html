@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>audio-filter</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="start-button">
+        <button id="start" class="button-49" role="button">start</button>
+    </div>
+    <div class="contentarea">
+        <div id="audio">
+            <canvas id="audio-canvas" class="visualizer" height="150px"></canvas>
+        </div>
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+            <canvas id="video-canvas"></canvas>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+<script src="audio.js"></script>
+<script src="video.js"></script>
+</body>
+</html>
