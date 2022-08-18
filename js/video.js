@@ -21,8 +21,7 @@ function startVideo() {
         canvas.setAttribute('height', height);
         takePicture();
     }
-
-    setInterval(take, 10);
+    setInterval(take, 100);
 
     function takePicture() {
         const ctx = canvas.getContext('2d');
@@ -35,7 +34,6 @@ function startVideo() {
             ctx.drawImage(video, 0, 0, width, height);
 
             const dataUrl = canvas.toDataURL('image/png')
-            console.log(dataUrl)
 
             const img = sendServer(dataUrl);
         }

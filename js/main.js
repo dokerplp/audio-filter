@@ -9,6 +9,7 @@ document.getElementById("start").addEventListener("click", (e) => {
 let audioData;
 
 function sendServer(image) {
+    console.log(audioData)
     $.ajax({
         type: "POST",
         url: "http://localhost:8080/audio-filter",
@@ -20,7 +21,7 @@ function sendServer(image) {
             audio: Array.from(audioData)
         })
     }).done(function(o) {
-        console.log('saved');
+        //console.log('saved');
     });
 
     return image

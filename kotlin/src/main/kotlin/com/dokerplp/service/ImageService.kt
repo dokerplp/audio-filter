@@ -15,6 +15,10 @@ class ImageService {
     private val userDir = System.getProperty("user.dir")
     private val path = "$userDir/img.png"
 
+    fun handleImage(dataUrl: String) {
+
+    }
+
     fun parseBase64(dataUrl: String) {
         try {
             val dataWithoutHeader = dataUrl.split(",")[1]
