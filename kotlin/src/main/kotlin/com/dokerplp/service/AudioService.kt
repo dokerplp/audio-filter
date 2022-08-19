@@ -6,12 +6,10 @@ import org.springframework.stereotype.Service
 @Service
 class AudioService {
 
-    fun handleAudio(data: List<Double>) {
-
-    }
-
-    fun func(data: List<Double>) {
+    fun handleAudio(data: List<Double>): (Double) -> Double {
         val analyzer = AudioAnalyzer()
-        val f = analyzer.analyze(data.toDoubleArray())
+        val scalaFunc = analyzer.analyze(data.toDoubleArray())
+        return { (x: Double) -> scalaFunc.apply(x) as Double }
     }
 }
+private operator fun Double.component1(): Double = this

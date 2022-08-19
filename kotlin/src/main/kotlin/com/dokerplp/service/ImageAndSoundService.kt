@@ -7,6 +7,8 @@ import java.util.concurrent.Executors
 import java.util.concurrent.ThreadPoolExecutor
 
 import kotlin.coroutines.*
+import kotlin.math.max
+import kotlin.math.min
 
 @Service
 class ImageAndSoundService(
@@ -14,17 +16,16 @@ class ImageAndSoundService(
     private val audioService: AudioService
 ) {
 
-    fun handle(imageAndSoundMessage: ImageAndSoundMessage) {
-        val executor = Executors.newFixedThreadPool(2)
-        val tasks: List<Callable<Any>> = listOf(
-            Callable<Any> {
-                imageService.handleImage(imageAndSoundMessage.image)
-            },
-            Callable<Any> {
-                audioService.handleAudio(imageAndSoundMessage.audio)
-            }
-        )
-        executor.invokeAll(tasks)
-        executor.shutdown()
+    fun handle(imageAndSoundMessage: ImageAndSoundMessage): String {
+        val audioValues = imageAndSoundMessage.audio
+        val size = audioValues.size
+        val audio = audioService.handleAudio(audioValues)
+        return imageService.handleImage(imageAndSoundMessage.image, audio, size, getAlpha(audioValues))
+        //imageService.handleImage(imageAndSoundMessage.image)
+    }
+
+    fun getAlpha(audioValues: List<Double>): Int {
+        val loud = (audioValues.maxOrNull() ?: 0.0) * 228
+        return min(loud.toInt(), 255)
     }
 }

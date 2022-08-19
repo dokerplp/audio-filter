@@ -2,14 +2,20 @@ document.getElementById("start").addEventListener("click", (e) => {
     document.getElementById("start").remove();
     document.getElementById("audio-canvas").style.visibility = "visible";
     document.getElementById("video-canvas").style.visibility = "visible";
+    document.getElementById("filtered").style.visibility = "visible";
     startVideo();
     startAudio();
 });
 
 let audioData;
 
+function filterImage(image) {
+    return sendServer(image)
+}
+
 function sendServer(image) {
-    console.log(audioData)
+    let photo = document.getElementById('filtered')
+
     $.ajax({
         type: "POST",
         url: "http://localhost:8080/audio-filter",
@@ -19,10 +25,12 @@ function sendServer(image) {
         data: JSON.stringify({
             image: image,
             audio: Array.from(audioData)
-        })
-    }).done(function(o) {
-        //console.log('saved');
+        }),
+        success: function(o) {
+            photo.setAttribute('src', o);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            photo.setAttribute('src', image);
+        }
     });
-
-    return image
 }

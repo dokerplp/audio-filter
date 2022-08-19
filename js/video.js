@@ -1,12 +1,10 @@
 //https://github.com/mdn/samples-server/blob/master/s/webrtc-capturestill/capture.js
 function startVideo() {
-    const width = 920;
-    const height = 480;
-    let video = null;
-    let canvas = null;
+    const width = 480;
+    const height = 360;
 
-    video = document.getElementById('video');
-    canvas = document.getElementById('video-canvas');
+    let video = document.getElementById('video');
+    let canvas = document.getElementById('video-canvas');
 
     navigator.mediaDevices.getUserMedia({video: true, audio: false})
         .then(function (stream) {
@@ -35,7 +33,7 @@ function startVideo() {
 
             const dataUrl = canvas.toDataURL('image/png')
 
-            const img = sendServer(dataUrl);
+            filterImage(dataUrl);
         }
     }
 

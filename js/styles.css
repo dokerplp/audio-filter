@@ -27,6 +27,11 @@ html {
     visibility: hidden;
 }
 
+#filtered {
+    outline: black 3px solid;
+    visibility: hidden;
+}
+
 #start-button {
     position: absolute;
     left: 50%;
