@@ -1,7 +1,7 @@
 //https://github.com/mdn/samples-server/blob/master/s/webrtc-capturestill/capture.js
 function startVideo() {
     const width = 480;
-    const height = 360;
+    const height = 320;
 
     let video = document.getElementById('video');
     let canvas = document.getElementById('video-canvas');

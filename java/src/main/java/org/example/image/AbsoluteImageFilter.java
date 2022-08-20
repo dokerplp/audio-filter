@@ -1,15 +1,7 @@
 package org.example.image;
 
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+public class AbsoluteImageFilter extends BaseImageFilter {
 
-public class AudioImageFilter extends BaseImageFilter {
-
-    private final List<Double> audio;
-
-    public AudioImageFilter(List<Double> audio) {
-        this.audio = audio;
-    }
 
     @Override
     public String filter(String image) {
@@ -24,10 +16,14 @@ public class AudioImageFilter extends BaseImageFilter {
                 int r = (color & 0xff0000) >> 16;
                 int g = (color & 0xff00) >> 8;
                 int b = color & 0xff;
+                if (r > g && r > b) {
+                    r = 255;
+                } else if (g > r && g > b) {
+                    g = 255;
+                } else if (b > r && b > g) {
+                    b = 255;
+                }
                 int a = 255;
-
-                g = 0;
-                b = 0;
 
                 var p = getArgbPixel(a, r, g, b);
 
