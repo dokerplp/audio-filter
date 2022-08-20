@@ -1,4 +1,6 @@
-package org.example.image;
+package org.example.image.audioFilter;
+
+import org.example.image.filter.BaseImageFilter;
 
 import java.util.List;
 
@@ -7,6 +9,6 @@ public abstract class BaseAudioImageFilter extends BaseImageFilter {
 
 
     protected BaseAudioImageFilter(List<Double> audio) {
-        this.audio = audio.stream().map((o) -> (int) Math.round(o * 500)).toList();
+        this.audio = audio.stream().map((o) -> (int) Math.round(o * 1000)).toList();
     }
 }

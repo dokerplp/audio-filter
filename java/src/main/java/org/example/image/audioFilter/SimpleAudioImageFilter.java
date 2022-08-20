@@ -1,6 +1,7 @@
-package org.example.image;
+package org.example.image.audioFilter;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SimpleAudioImageFilter extends BaseAudioImageFilter {
 
@@ -25,6 +26,7 @@ public class SimpleAudioImageFilter extends BaseAudioImageFilter {
 
         int pos = 0;
         for (int y = 0; y < height; y++) {
+
             for (int x = 0; x < width; x++) {
                 int color = bfi.getRGB(x, y);
 
@@ -33,9 +35,13 @@ public class SimpleAudioImageFilter extends BaseAudioImageFilter {
                 int b = color & 0xff;
 
                 int a = 255;
-                r = getColor(r, audio.get(pos++ % audio.size()));
-                g = getColor(g, audio.get(pos++ % audio.size()));
-                b = getColor(b, audio.get(pos++ % audio.size()));
+
+                r += audio.get(ThreadLocalRandom.current().nextInt(0, audio.size()));
+                g += audio.get(ThreadLocalRandom.current().nextInt(0, audio.size()));
+                b += audio.get(ThreadLocalRandom.current().nextInt(0, audio.size()));
+                r %= 256;
+                g %= 256;
+                b %= 256;
 
                 var p = getArgbPixel(a, r, g, b);
 

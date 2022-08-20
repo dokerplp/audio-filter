@@ -1,6 +1,7 @@
-package org.example.image;
+package org.example.image.filter;
 
 import jakarta.xml.bind.DatatypeConverter;
+import org.example.image.ImageFilter;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

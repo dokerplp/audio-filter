@@ -1,4 +1,4 @@
-package org.example.image;
+package org.example.image.filter;
 
 import java.util.concurrent.ThreadLocalRandom;
 

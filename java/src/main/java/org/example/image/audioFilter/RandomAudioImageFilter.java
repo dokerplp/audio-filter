@@ -1,4 +1,4 @@
-package org.example.image;
+package org.example.image.audioFilter;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
