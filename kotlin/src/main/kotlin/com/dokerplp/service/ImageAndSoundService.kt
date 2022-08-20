@@ -21,6 +21,6 @@ class ImageAndSoundService(
         //val audio = audioService.handleAudio(audioValues)
         //return imageService.handleImage(imageAndSoundMessage.image, audio, size, getAlpha(audioValues))
         //return imageService.handleImage(imageAndSoundMessage.image)
-        return imageService.handleImage(imageAndSoundMessage.image, imageAndSoundMessage.audio)
+        return imageService.handleImage(imageAndSoundMessage.image, imageAndSoundMessage.audio, imageAndSoundMessage.filter)
     }
 }

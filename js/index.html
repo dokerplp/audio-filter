@@ -13,7 +13,7 @@
     <div id="start-button">
         <button id="start" class="button-49" role="button">start</button>
     </div>
-    <div class="contentarea">
+    <div id="contentarea">
         <div id="audio">
             <canvas id="audio-canvas" class="visualizer" height="150px"></canvas>
         </div>
@@ -21,6 +21,22 @@
             <video id="video">Video stream not available.</video>
             <canvas id="video-canvas"></canvas>
             <img id="filtered" alt="The screen capture will appear in this box.">
+        </div>
+        <div id="filter-selector">
+            <label for="filters">Choose filter:</label>
+            <select id="filters">
+                <option value="default">Default</option>
+                <option value="anti-default">Anti-default</option>
+                <option value="absolute">Absolute</option>
+                <option value="anti-absolute">Anti-absolute</option>
+                <option value="drug">Drug</option>
+                <option value="red">Red</option>
+                <option value="white-noise">White noise</option>
+                <option value="white-noise-2">White noise 2</option>
+                <option value="drug-audio">Drug audio</option>
+                <option value="random-audio">Random audio</option>
+                <option value="simple-audio">Simple audio</option>
+            </select>
         </div>
     </div>
 </div>

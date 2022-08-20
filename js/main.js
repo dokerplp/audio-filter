@@ -1,8 +1,6 @@
 document.getElementById("start").addEventListener("click", (e) => {
     document.getElementById("start").remove();
-    document.getElementById("audio-canvas").style.visibility = "visible";
-    document.getElementById("video-canvas").style.visibility = "visible";
-    document.getElementById("filtered").style.visibility = "visible";
+    document.getElementById("contentarea").style.visibility = "visible";
     startVideo();
     startAudio();
 });
@@ -24,7 +22,8 @@ function sendServer(image) {
         },
         data: JSON.stringify({
             image: image,
-            audio: Array.from(audioData)
+            audio: Array.from(audioData),
+            filter: document.getElementById('filters').value
         }),
         success: function(o) {
             photo.setAttribute('src', o);

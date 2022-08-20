@@ -6,7 +6,7 @@ html {
     width: 90%;
     outline: black 3px solid;
     border-radius: 15px;
-    visibility: hidden;
+    /*visibility: hidden;*/
     margin-top: 20px;
 }
 
@@ -22,6 +22,16 @@ html {
     justify-content: center;
 }
 
+#filter-selector {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#filters {
+    margin-left: 10px;
+}
+
 #filtered {
     width: 40%;
     margin-left: 20px;
@@ -33,11 +43,15 @@ html {
 
 #video-canvas {
     outline: black 3px solid;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
 #filtered {
     outline: black 3px solid;
+    /*visibility: hidden;*/
+}
+
+#contentarea {
     visibility: hidden;
 }
 
