@@ -1,11 +1,10 @@
 package org.example.image.audioFilter;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class RandomAudioImageFilter extends BaseAudioImageFilter {
+public class WhiteNoiseAudioImageFilter extends BaseAudioImageFilter {
 
-    public RandomAudioImageFilter(List<Double> audio) {
+    public WhiteNoiseAudioImageFilter(List<Double> audio) {
         super(audio);
     }
 

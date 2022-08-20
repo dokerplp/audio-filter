@@ -1,17 +1,10 @@
 package com.dokerplp.service
 
 import org.example.image.ImageFilter
+import org.example.image.audioFilter.CringeAudioImageFilter
 import org.example.image.audioFilter.DrugAudioImageFilter
-import org.example.image.audioFilter.RandomAudioImageFilter
-import org.example.image.audioFilter.SimpleAudioImageFilter
-import org.example.image.filter.AbsoluteImageFilter
-import org.example.image.filter.AntiAbsoluteImageFilter
-import org.example.image.filter.AntiSimpleImageFilter
-import org.example.image.filter.DrugImageFilter
-import org.example.image.filter.RedImageFilter
-import org.example.image.filter.SimpleImageFilter
-import org.example.image.filter.WhiteNoise2ImageFilter
-import org.example.image.filter.WhiteNoiseImageFilter
+import org.example.image.audioFilter.WhiteNoiseAudioImageFilter
+import org.example.image.filter.*
 import org.springframework.stereotype.Service
 
 
@@ -20,18 +13,23 @@ class FilterService {
 
     fun getFilter(filter: String, audio: List<Double>): ImageFilter {
         return when (filter) {
-            "default" -> SimpleImageFilter()
-            "anti-default" -> AntiSimpleImageFilter()
-            "absolute" -> AbsoluteImageFilter()
-            "anti-absolute" -> AntiAbsoluteImageFilter()
+            "default" -> DefaultImageFilter()
+            "negative" -> NegativeImageFilter()
+            "purple-negative" -> PurpleNegativeImageFilter()
+            "green-negative" -> GreenNegativeImageFilter()
+            "black-negative" -> BlackNegativeImageFilter()
             "drug" -> DrugImageFilter()
             "red" -> RedImageFilter()
+            "black-white" -> BlackAndWhiteImageFilter()
+            "sepia" -> SepiaImageFilter()
+            "absolute" -> AbsoluteImageFilter()
+            "anti-absolute" -> AntiAbsoluteImageFilter()
             "white-noise" -> WhiteNoiseImageFilter()
             "white-noise-2" -> WhiteNoise2ImageFilter()
             "drug-audio" -> DrugAudioImageFilter(audio)
-            "random-audio" -> RandomAudioImageFilter(audio)
-            "simple-audio" -> SimpleAudioImageFilter(audio)
-            else -> SimpleImageFilter()
+            "white-noise-audio" -> WhiteNoiseAudioImageFilter(audio)
+            "cringe-audio" -> CringeAudioImageFilter(audio)
+            else -> DefaultImageFilter()
         }
     }
 }

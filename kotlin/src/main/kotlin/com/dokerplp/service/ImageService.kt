@@ -1,7 +1,5 @@
 package com.dokerplp.service
 
-import org.example.image.audioFilter.RandomAudioImageFilter
-import org.example.image.filter.AverageImageFilter
 import org.example.image.filter.RedImageFilter
 import org.example.image.filter.WhiteNoise2ImageFilter
 import org.springframework.stereotype.Service

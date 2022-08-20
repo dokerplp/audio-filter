@@ -3,9 +3,9 @@ package org.example.image.audioFilter;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SimpleAudioImageFilter extends BaseAudioImageFilter {
+public class CringeAudioImageFilter extends BaseAudioImageFilter {
 
-    public SimpleAudioImageFilter(List<Double> audio) {
+    public CringeAudioImageFilter(List<Double> audio) {
         super(audio);
     }
 
