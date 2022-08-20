@@ -1,17 +1,10 @@
 package com.dokerplp.service
 
-import org.example.image.AbsoluteImageFilter
-import org.example.image.AntiAbsoluteImageFilter
-import org.example.image.AntiSimpleImageFilter
-import org.example.image.DrugAudioImageFilter
-import org.example.image.DrugImageFilter
-import org.example.image.RandomAudioImageFilter
-import org.example.image.RedImageFilter
-import org.example.image.SimpleAudioImageFilter
+import org.example.image.audioFilter.RandomAudioImageFilter
+import org.example.image.filter.AverageImageFilter
+import org.example.image.filter.RedImageFilter
+import org.example.image.filter.WhiteNoise2ImageFilter
 import org.springframework.stereotype.Service
-import java.io.*
-import java.util.*
-
 
 @Service
 class ImageService {
@@ -22,7 +15,7 @@ class ImageService {
     }
 
     fun handleImage(image: String, audio: List<Double>): String {
-        val filter = AntiSimpleImageFilter()
+        val filter = AverageImageFilter()
         return filter.filter(image)
     }
 

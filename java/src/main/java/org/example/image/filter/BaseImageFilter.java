@@ -1,6 +1,9 @@
 package org.example.image.filter;
 
 import jakarta.xml.bind.DatatypeConverter;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.example.image.ImageFilter;
 
 import javax.imageio.ImageIO;
@@ -10,6 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class BaseImageFilter implements ImageFilter {
 
@@ -57,6 +61,50 @@ public abstract class BaseImageFilter implements ImageFilter {
             bfi.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    protected int rand(int l, int r) {
+        return ThreadLocalRandom.current().nextInt(l, r);
+    }
+
+    @Setter
+    protected static class RGB {
+        private int a, r, g, b;
+
+        public RGB(int a, int color) {
+            this.a = a;
+            this.r = (color & 0xff0000) >> 16;
+            this.g = (color & 0xff00) >> 8;
+            this.b = color & 0xff;
+        }
+
+        public void incR(int i) {
+            r += i;
+        }
+
+        public void incG(int i) {
+            g += i;
+        }
+
+        public void incB(int i) {
+            b += i;
+        }
+
+        public int getA() {
+            return a % 256;
+        }
+
+        public int getR() {
+            return r % 256;
+        }
+
+        public int getG() {
+            return g % 256;
+        }
+
+        public int getB() {
+            return b % 256;
         }
     }
 }

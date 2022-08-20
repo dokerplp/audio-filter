@@ -12,15 +12,12 @@ public class AntiSimpleImageFilter extends BaseImageFilter {
         int i = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int color = bfi.getRGB(x, y);
+                var rgb = new RGB(255, bfi.getRGB(x, y));
+                rgb.setR(255 - rgb.getR());
+                rgb.setG(255 - rgb.getG());
+                rgb.setB(255 - rgb.getB());
 
-                int r = 255 - (color & 0xff0000) >> 16;
-                int g = 255 - (color & 0xff00) >> 8;
-                int b = 255 - color & 0xff;
-
-                int a = 255;
-                var p = getArgbPixel(a, r, g, b);
-
+                var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
                 bfi.setRGB(x, y, p);
             }
         }

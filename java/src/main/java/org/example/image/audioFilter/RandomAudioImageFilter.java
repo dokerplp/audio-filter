@@ -9,12 +9,9 @@ public class RandomAudioImageFilter extends BaseAudioImageFilter {
         super(audio);
     }
 
-    private int getBound(int audio) {
-        return 100 + Math.abs(audio) % 255;
-    }
 
-    private int incPosition(int position) {
-        return (position + 1) % 256;
+    private int position(int i) {
+        return rand(0, Math.abs(audio.get(i)) + 1) % 256;
     }
 
     @Override
@@ -23,18 +20,22 @@ public class RandomAudioImageFilter extends BaseAudioImageFilter {
         var width = bfi.getWidth();
         var height = bfi.getHeight();
 
-        int pos = 0;
+        int i = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                var a = 255;
-                var r = ThreadLocalRandom.current().nextInt(0, getBound(audio.get(pos)));
-                pos = incPosition(pos);
-                var g = ThreadLocalRandom.current().nextInt(0, getBound(audio.get(pos)));
-                pos = incPosition(pos);
-                var b = ThreadLocalRandom.current().nextInt(0, getBound(audio.get(pos)));
-                pos = incPosition(pos);
+                var rgb = new RGB(255, bfi.getRGB(x, y));
 
-                var p = getArgbPixel(a, r, g, b);
+                int rand = rand(0, 3);
+                switch (rand) {
+                    case 0 -> rgb.setR(position(i));
+                    case 1 -> rgb.setG(position(i));
+                    case 2 -> rgb.setB(position(i));
+                }
+                i += rand(0, 20);
+                i %= audio.size();
+
+
+                var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
                 bfi.setRGB(x, y, p);
             }
         }

@@ -13,10 +13,10 @@ public class WhiteNoiseImageFilter extends BaseImageFilter {
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                var a = ThreadLocalRandom.current().nextInt(0, 256);
-                var r = ThreadLocalRandom.current().nextInt(0, 256);
-                var g = ThreadLocalRandom.current().nextInt(0, 256);
-                var b = ThreadLocalRandom.current().nextInt(0, 256);
+                var a = rand(0, 256);
+                var r = rand(0, 256);
+                var g = rand(0, 256);
+                var b = rand(0, 256);
                 var p = getArgbPixel(a, r, g, b);
                 bfi.setRGB(x, y, p);
             }

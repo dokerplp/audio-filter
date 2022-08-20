@@ -10,24 +10,19 @@ public class AntiAbsoluteImageFilter extends BaseImageFilter {
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int color = bfi.getRGB(x, y);
-
-                int r = (color & 0xff0000) >> 16;
-                int g = (color & 0xff00) >> 8;
-                int b = color & 0xff;
-                if (r > g && r > b) {
-                    g = 0;
-                    b = 0;
-                } else if (g > r && g > b) {
-                    r = 0;
-                    b = 0;
-                } else if (b > r && b > g) {
-                    r = 0;
-                    g = 0;
+                var rgb = new RGB(255, bfi.getRGB(x, y));
+                if (rgb.getR() > rgb.getG() && rgb.getR() > rgb.getB()) {
+                    rgb.setG(0);
+                    rgb.setB(0);
+                } else if (rgb.getG() > rgb.getR() && rgb.getG() > rgb.getB()) {
+                    rgb.setR(0);
+                    rgb.setB(0);
+                } else if (rgb.getB() > rgb.getR() && rgb.getB() > rgb.getG()) {
+                    rgb.setR(0);
+                    rgb.setG(0);
                 }
-                int a = 255;
 
-                var p = getArgbPixel(a, r, g, b);
+                var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
 
                 bfi.setRGB(x, y, p);
             }
