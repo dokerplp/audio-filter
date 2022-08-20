@@ -22,6 +22,15 @@ html {
     justify-content: center;
 }
 
+#filtered {
+    width: 40%;
+    margin-left: 20px;
+}
+
+#video-canvas {
+    width: 40%;
+}
+
 #video-canvas {
     outline: black 3px solid;
     visibility: hidden;

@@ -38,7 +38,8 @@ public abstract class BaseImageFilter implements ImageFilter {
             var os = new ByteArrayOutputStream();
             ImageIO.write(bfi, "png", os);
             bfi.flush();
-            return Base64.getEncoder().encodeToString(os.toByteArray());
+            String image = Base64.getEncoder().encodeToString(os.toByteArray());
+            return packImage(image);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

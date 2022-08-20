@@ -17,8 +17,8 @@ public class AudioImageFilter extends BaseImageFilter {
         var width = bfi.getWidth();
         var height = bfi.getHeight();
 
-        for (int x = 0; x < height; x++) {
-            for (int y = 0; y < width; y++) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 int color = bfi.getRGB(x, y);
 
                 int r = (color & 0xff0000) >> 16;

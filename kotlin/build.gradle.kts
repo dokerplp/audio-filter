@@ -29,6 +29,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("jakarta.xml.bind:jakarta.xml.bind-api:4.0.0")
     implementation(files("../scala/target/scala-2.13/scala_2.13-0.1.0.jar"))
+    implementation(files("../java/build/libs/java-1.0.0.jar"))
     constraints {
         implementation("org.apache.commons:commons-text:1.9")
         implementation("org.scala-lang:scala-library:2.13.7")
