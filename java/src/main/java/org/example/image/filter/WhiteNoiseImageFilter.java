@@ -1,7 +1,5 @@
 package org.example.image.filter;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class WhiteNoiseImageFilter extends BaseImageFilter {
 
     @Override

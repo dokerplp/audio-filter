@@ -5,9 +5,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor
-public class FloatAudioImageFilter extends BaseAudioImageFilter {
+public class LineAudioImageFilter extends BaseAudioImageFilter {
 
-    public FloatAudioImageFilter(List<Double> audio) {
+    public LineAudioImageFilter(List<Double> audio) {
         super(audio);
     }
 
@@ -21,11 +21,11 @@ public class FloatAudioImageFilter extends BaseAudioImageFilter {
         int i = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                var p = bfi.getRGB((x + Math.abs(audio.get(i))) % width, (y + Math.abs(audio.get(i))) % height);
-                i++;
-                i %= audio.size();
+                var p = bfi.getRGB(x, (y + Math.abs(audio.get(i))) % height);
                 copy.setRGB(x, y, p);
             }
+            i++;
+            i %= audio.size();
         }
         return bufferedImageToString(copy);
     }

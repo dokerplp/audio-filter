@@ -1,8 +1,6 @@
 package org.example.image.filter;
 
 import jakarta.xml.bind.DatatypeConverter;
-import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 import org.example.image.ImageFilter;
 

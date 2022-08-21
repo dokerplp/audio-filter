@@ -1,7 +1,6 @@
 package org.example.image.audioFilter;
 
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.example.image.filter.BaseImageFilter;
 
 import java.util.List;

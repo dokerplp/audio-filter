@@ -55,6 +55,24 @@ html {
     visibility: hidden;
 }
 
+#select {
+    outline: black 3px solid;
+    border-radius: 5px;
+}
+
+#label {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#filters {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 #start-button {
     position: absolute;
     left: 50%;

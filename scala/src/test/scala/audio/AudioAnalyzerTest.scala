@@ -1,9 +1,7 @@
 package audio
 
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions._
-
-import scala.math.BigDecimal.double2bigDecimal;
+import org.junit.jupiter.api.Test;
 
 class AudioAnalyzerTest {
 

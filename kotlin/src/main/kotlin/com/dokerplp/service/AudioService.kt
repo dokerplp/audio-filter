@@ -12,4 +12,5 @@ class AudioService {
         return { (x: Double) -> scalaFunc.apply(x) as Double }
     }
 }
+
 private operator fun Double.component1(): Double = this

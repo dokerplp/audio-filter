@@ -1,7 +1,6 @@
 package com.dokerplp.service
 
 import org.example.image.filter.RedImageFilter
-import org.example.image.filter.WhiteNoise2ImageFilter
 import org.example.strategy.FiltersStrategy
 import org.springframework.stereotype.Service
 

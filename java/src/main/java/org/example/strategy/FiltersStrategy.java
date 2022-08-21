@@ -3,7 +3,6 @@ package org.example.strategy;
 import org.example.image.ImageFilter;
 
 import java.util.List;
-import java.util.Map;
 
 public class FiltersStrategy {
 

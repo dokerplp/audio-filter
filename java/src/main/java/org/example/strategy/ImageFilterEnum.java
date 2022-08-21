@@ -20,16 +20,16 @@ public enum ImageFilterEnum {
     RED(new RedImageFilter()),
     SEPIA(new SepiaImageFilter()),
     WHITE_NOISE_2(new WhiteNoise2ImageFilter()),
-    WHITE_NOISE(new WhiteNoiseImageFilter());
+    WHITE_NOISE(new WhiteNoiseImageFilter()),
+    PUZZLE(new PuzzleImageFilter());
 
+    private final static EnumSet<ImageFilterEnum> filters = EnumSet.allOf(ImageFilterEnum.class);
     @Getter
     private final BaseImageFilter filter;
 
     ImageFilterEnum(BaseImageFilter filter) {
         this.filter = filter;
     }
-
-    private final static EnumSet<ImageFilterEnum> filters = EnumSet.allOf(ImageFilterEnum.class);
 
     public static Optional<BaseImageFilter> getFilter(String name) {
         var f = filters.stream().filter(o -> o.toString().equals(name)).findAny();

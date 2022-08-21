@@ -3,15 +3,15 @@ package org.example.image.filter;
 public class SepiaImageFilter extends BaseImageFilter {
 
     private int red(int r, int g, int b) {
-        return Math.min((int)((r * .393) + (g *.769) + (b * .189)), 255);
+        return Math.min((int) ((r * .393) + (g * .769) + (b * .189)), 255);
     }
 
     private int green(int r, int g, int b) {
-        return Math.min((int)((r * .349) + (g *.686) + (b * .168)), 255);
+        return Math.min((int) ((r * .349) + (g * .686) + (b * .168)), 255);
     }
 
     private int blue(int r, int g, int b) {
-        return Math.min((int)((r * .272) + (g *.534) + (b * .131)), 255);
+        return Math.min((int) ((r * .272) + (g * .534) + (b * .131)), 255);
     }
 
     @Override

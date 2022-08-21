@@ -3,6 +3,8 @@ package audio
 import scala.annotation.tailrec
 
 class AudioAnalyzer {
+  def analyze(array: Array[Double]): Double => Double = analyze(array.toList)
+
   def analyze(list: List[Double]): Double => Double = {
     @tailrec
     def helper(list: List[Double], x: Int, f: Double => Double): Double => Double = {
@@ -15,10 +17,9 @@ class AudioAnalyzer {
         }
       }
     }
+
     helper(list, 0, _ => 0)
   }
-
-  def analyze(array: Array[Double]): Double => Double = analyze(array.toList)
 
 }
 
