@@ -1,7 +1,10 @@
 package org.example.image.audioFilter;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
 public class WhiteNoiseAudioImageFilter extends BaseAudioImageFilter {
 
     public WhiteNoiseAudioImageFilter(List<Double> audio) {

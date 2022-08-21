@@ -29,7 +29,6 @@ public class WhiteNoise2ImageFilter extends BaseImageFilter {
                         rgb.setB(rand(0, 256));
                     }
                 }
-
                 var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
                 bfi.setRGB(x, y, p);
             }

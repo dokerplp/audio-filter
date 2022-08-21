@@ -1,7 +1,10 @@
 package org.example.image.audioFilter;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
 public class DrugAudioImageFilter extends BaseAudioImageFilter {
 
     public DrugAudioImageFilter(List<Double> audio) {

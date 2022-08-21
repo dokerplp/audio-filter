@@ -2,12 +2,11 @@ package com.dokerplp.service
 
 import org.example.image.filter.RedImageFilter
 import org.example.image.filter.WhiteNoise2ImageFilter
+import org.example.strategy.FiltersStrategy
 import org.springframework.stereotype.Service
 
 @Service
-class ImageService(
-    private val filterService: FilterService
-) {
+class ImageService {
 
     fun handleImage(image: String): String {
         val filter = RedImageFilter()
@@ -15,7 +14,7 @@ class ImageService(
     }
 
     fun handleImage(image: String, audio: List<Double>, filter: String): String {
-        val filterImage = filterService.getFilter(filter, audio)
+        val filterImage = FiltersStrategy().getFilter(filter, audio)
         return filterImage.filter(image)
     }
 
