@@ -16,7 +16,7 @@ function sendServer(image) {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/audio-filter",
+        url: "/audio-filter",
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
         },

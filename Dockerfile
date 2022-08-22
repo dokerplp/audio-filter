@@ -2,6 +2,9 @@ FROM sbtscala/scala-sbt:17.0.2_1.7.1_3.1.3
 
 COPY ./ /app
 
+WORKDIR /app
+RUN mv ./js/* ./kotlin/src/main/resources/static
+
 WORKDIR /app/java
 RUN chmod 777 gradlew
 RUN ./gradlew build

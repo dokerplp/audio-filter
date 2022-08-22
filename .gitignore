@@ -44,7 +44,5 @@ out/
 /kotlin/.gradle/
 /img.png
 /img/
-/kotlin/gradle/
-/java/gradle/
 /.bsp/
 /project/
