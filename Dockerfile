@@ -16,4 +16,4 @@ WORKDIR /app/kotlin
 RUN chmod 777 gradlew
 RUN ./gradlew build
 
-ENTRYPOINT ["java", "-jar","build/libs/kotlin-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar","build/libs/kotlin-1.0.0.jar", "-Xmx512m"]

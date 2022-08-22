@@ -19,7 +19,7 @@ function startVideo() {
         canvas.setAttribute('height', height);
         takePicture();
     }
-    setInterval(take, 10);
+    setInterval(take, 100);
 
     function takePicture() {
         const ctx = canvas.getContext('2d');
