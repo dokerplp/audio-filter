@@ -3,11 +3,11 @@
 
 App with many regular filters and audio filters. Audio filters change the image depending on the ambient sound.
 
-# Support
+### Support
 
 Working only in Chrome browser
 
-# Deploy
+### Deploy
 
 ```console
 foo@bar:~$ docker-compose up
