@@ -28,14 +28,19 @@ public class WhiteNoiseAudioImageFilter extends BaseAudioImageFilter {
                 var rgb = new RGB(255, bfi.getRGB(x, y));
 
                 int rand = rand(0, 3);
-                switch (rand) {
-                    case 0 -> rgb.setR(position(i));
-                    case 1 -> rgb.setG(position(i));
-                    case 2 -> rgb.setB(position(i));
+
+                if (rand == 0) {
+                    rgb.setR(position(i));
                 }
+                if (rand == 1) {
+                    rgb.setG(position(i));
+                }
+                if (rand == 2) {
+                    rgb.setB(position(i));
+                }
+
                 i += rand(0, 20);
                 i %= audio.size();
-
 
                 var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
                 bfi.setRGB(x, y, p);

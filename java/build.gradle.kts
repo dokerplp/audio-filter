@@ -2,6 +2,12 @@ plugins {
     id("java")
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 group = "dokerplp"
 version = "1.0.0"
 

@@ -8,8 +8,8 @@ plugins {
     id("scala")
 }
 
-group = "com"
-version = "0.0.1-SNAPSHOT"
+group = "dokerplp"
+version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 configurations {
