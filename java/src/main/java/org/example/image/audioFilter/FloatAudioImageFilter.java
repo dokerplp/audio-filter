@@ -21,7 +21,9 @@ public class FloatAudioImageFilter extends BaseAudioImageFilter {
         int i = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                var p = bfi.getRGB((x + Math.abs(audio.get(i))) % width, (y + Math.abs(audio.get(i))) % height);
+                var newX = (x + Math.abs(audio.get(i))) % width;
+                var newY = (y + Math.abs(audio.get(i))) % height;
+                var p = bfi.getRGB(newX, newY);
                 i++;
                 i %= audio.size();
                 copy.setRGB(x, y, p);
