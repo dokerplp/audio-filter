@@ -6,10 +6,8 @@ import org.example.image.ImageFilter;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.util.Base64;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -57,6 +55,24 @@ public abstract class BaseImageFilter implements ImageFilter {
             var file = new File(path);
             ImageIO.write(bfi, format, file);
             bfi.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected BufferedImage openImage(File f) {
+        try {
+            return ImageIO.read(f);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected BufferedImage openImageFromResources(String name) {
+        try {
+            var res = getClass().getResource(String.format("/%s", name));
+            assert res != null;
+            return ImageIO.read(res);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

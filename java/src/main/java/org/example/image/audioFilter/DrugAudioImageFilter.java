@@ -11,6 +11,10 @@ public class DrugAudioImageFilter extends BaseAudioImageFilter {
         super(audio);
     }
 
+    private int aboba(int i) {
+        return Math.abs(audio.get(Math.abs(i % audio.size())));
+    }
+
     @Override
     public String filter(String image) {
         var bfi = stringToBufferedImage(image);
@@ -23,12 +27,11 @@ public class DrugAudioImageFilter extends BaseAudioImageFilter {
                 var rgb = new RGB(255, bfi.getRGB(x, y));
 
                 rgb.incR(i);
-                i += 10 * Math.abs(audio.get(Math.abs(i % audio.size())));
+                i += 10 * aboba(i);
                 rgb.incG(i);
-                i += 20 * Math.abs(audio.get(Math.abs(i % audio.size())));
+                i += 20 * aboba(i);
                 rgb.incB(i);
-                i += 30 * Math.abs(audio.get(Math.abs(i % audio.size())));
-
+                i += 30 * aboba(i);
 
                 var p = getArgbPixel(rgb.getA(), rgb.getR(), rgb.getG(), rgb.getB());
                 bfi.setRGB(x, y, p);

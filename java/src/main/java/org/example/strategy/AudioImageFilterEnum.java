@@ -12,7 +12,8 @@ public enum AudioImageFilterEnum {
     FLOAT_AUDIO(new FloatAudioImageFilter()),
     WHITE_NOISE_AUDIO(new WhiteNoiseAudioImageFilter()),
     LINE_AUDIO(new LineAudioImageFilter()),
-    BLOAT_AUDIO(new BloatAudioImageFilter());
+    BLOAT_AUDIO(new BloatAudioImageFilter()),
+    DUCK_AUDIO(new DuckAudioImageFilter());
 
     private final static EnumSet<AudioImageFilterEnum> filters = EnumSet.allOf(AudioImageFilterEnum.class);
     @Getter
