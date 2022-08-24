@@ -21,7 +21,8 @@ public class LineAudioImageFilter extends BaseAudioImageFilter {
         int i = 0;
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                var p = bfi.getRGB(x, (y + Math.abs(audio.get(i))) % height);
+                var newY = (y + Math.abs(audio.get(i))) % height;
+                var p = bfi.getRGB(x, newY);
                 copy.setRGB(x, y, p);
             }
             i++;
