@@ -9,12 +9,21 @@ Working only in Chrome browser
 
 ### Deploy
 
-1. Run
-```console
-foo@bar:~$ docker-compose up
-```
+- With Docker
+  1. Run
+  ```console
+  foo@bar:~$ docker-compose up
+  ```
 
-2. Go to http://localhost:8080
+  2. Go to http://localhost:8080
+- If you have Scala, Kotlin, Java
+  1. Run
+    ```console
+    foo@bar:~$ bash build.sh
+    ```
+
+    2. Go to http://localhost:8080
+
 
 ### Example 
 
