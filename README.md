@@ -16,6 +16,13 @@ foo@bar:~$ docker-compose up
 
 2. Go to http://localhost:8080
 
-### Example 
+### DEMO
 
-[Heroku](https://dokerplp-audio-filter.herokuapp.com)
+![Filter 1](./doc/archi_drug_filter.png)
+
+Regular filter
+
+
+![Filter 2](./doc/archi_duck_filter.png)
+
+Audio-dependent filter
